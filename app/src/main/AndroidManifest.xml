@@ -12,10 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".patientdetail"
-            android:label="@string/title_activity_patientdetail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".patientdetail"></activity>
         <activity
             android:name=".PMRecord"
             android:label="@string/title_activity_pmrecord"

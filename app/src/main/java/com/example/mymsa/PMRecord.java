@@ -39,12 +39,12 @@ public class PMRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pmrecord);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+       // Toolbar toolbar = findViewById(R.id.toolbar);
         final TextView pat = findViewById(R.id.textView2);
-        final EditText editText = findViewById(R.id.editText2);
+        final EditText editText = findViewById(R.id.editText);
         final Button save = findViewById(R.id.button2);
-        pat.setText(getIntent().getStringExtra("PMR"));
-        setSupportActionBar(toolbar);
+        pat.setText(getIntent().getStringExtra("name"));
+       // setSupportActionBar(toolbar);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -52,7 +52,7 @@ public class PMRecord extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = getIntent();
-                Snackbar.make(view, intent.getStringExtra("PMR"), Snackbar.LENGTH_LONG)
+                Snackbar.make(view, intent.getStringExtra("name"), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

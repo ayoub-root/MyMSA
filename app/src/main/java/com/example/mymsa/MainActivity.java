@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         "This is a message displayed in a Toast",
                         Toast.LENGTH_SHORT);
 
-                toast.show();
+              //  toast.show();
 
 
                // setContentView(R.layout.activity_patient);

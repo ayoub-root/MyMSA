@@ -159,20 +159,20 @@ public class Patient extends AppCompatActivity {
                 //displaying the first match
                 if (matches != null)
                     editText.setText("hhhhh  "+matches.get(0));
-                Toast.makeText(getApplicationContext(),"k,l,lk,lk "+contactList.get(1),Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getApplicationContext(),"k,l,lk,lk "+contactList.get(1),Toast.LENGTH_LONG).show();
                 for (int i=0;i< contactList.size();i++){
 
                  try {
                      JSONObject aa =new  JSONObject(contactList.get(i));
                      String name= aa.getString("name");
-                     System.out.println("ssssssssssssss "+name);
+                   //  System.out.println("ssssssssssssss "+name);
                      String pat= "patient "+name;
                      if (pat.equals(matches.get(0))){
-                     Toast.makeText(getApplicationContext(),
-                             "hello : "+name ,
-                             Toast.LENGTH_LONG).show();
-                         Intent intent = new Intent(Patient.this,PMRecord.class);
-                         intent.putExtra("PMR", contactList.get(i).toString());
+                 //    Toast.makeText(getApplicationContext(),
+                   //          "hello : "+name ,
+                     //        Toast.LENGTH_LONG).show();
+                         Intent intent = new Intent(Patient.this,patientdetail.class);
+                         intent.putExtra("PMR", "{\"name\":"+ contactList.get(i).get("name")+"}");
                          startActivity(intent);
                      }
                  }catch (final JSONException e) {
@@ -180,9 +180,9 @@ public class Patient extends AppCompatActivity {
                      runOnUiThread(new Runnable() {
                          @Override
                          public void run() {
-                             Toast.makeText(getApplicationContext(),
-                                     "Json parsing error: " + e.getMessage(),
-                                     Toast.LENGTH_LONG).show();
+                 //            Toast.makeText(getApplicationContext(),
+                   //                  "Json parsing error: " + e.getMessage(),
+                     //                Toast.LENGTH_LONG).show();
                          }
                      });
 
@@ -207,11 +207,11 @@ public class Patient extends AppCompatActivity {
         findViewById(R.id.button).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "This is a message displayed in a Toast",
-                        Toast.LENGTH_SHORT);
+           //     Toast toast = Toast.makeText(getApplicationContext(),
+             //           "This is a message displayed in a Toast",
+               //         Toast.LENGTH_SHORT);
 
-                toast.show();
+           //     toast.show();
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_UP:
                         mSpeechRecognizer.stopListening();
@@ -246,7 +246,7 @@ public class Patient extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(getApplicationContext(), "Json Data is downloading", Toast.LENGTH_LONG).show();
+         //   Toast.makeText(getApplicationContext(), "Json Data is downloading", Toast.LENGTH_LONG).show();
 
         }
 
@@ -297,9 +297,9 @@ public class Patient extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    "Json parsing error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
+                      //      Toast.makeText(getApplicationContext(),
+                        //            "Json parsing error: " + e.getMessage(),
+                          //          Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -310,9 +310,9 @@ public class Patient extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Check LogCat for possible errors!",
-                                Toast.LENGTH_LONG).show();
+                    //    Toast.makeText(getApplicationContext(),
+                          //      "Couldn't get json from server. Check LogCat for possible errors!",
+                            //    Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -332,8 +332,8 @@ public class Patient extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //    String item = (String) lv.getItemAtPosition(position);
                     Toast.makeText(getApplicationContext(),"You selected : " + lv.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Patient.this,PMRecord.class);
-                    intent.putExtra("PMR", lv.getItemAtPosition(position).toString());
+                    Intent intent = new Intent(Patient.this,patientdetail.class);
+                    intent.putExtra("PMR", "{\"name\": \""+ contactList.get(position).get("name")+"\"}");
                     startActivity(intent);
                 }
             });
