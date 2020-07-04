@@ -38,8 +38,9 @@ import java.util.HashMap;
 import java.util.Locale;
 
 public class Patient extends AppCompatActivity {
+    ArrayList<HashMap<String, String>> contactList;
     private final int REQ_CODE = 100;
-
+    private String TAG = MainActivity.class.getSimpleName();
     private ListView lv;
     /*
     @Override
@@ -89,7 +90,7 @@ public class Patient extends AppCompatActivity {
         }
     }*/
 
-    ArrayList<HashMap<String, String>> contactList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,7 +158,39 @@ public class Patient extends AppCompatActivity {
 
                 //displaying the first match
                 if (matches != null)
-                    editText.setText(matches.get(0));
+                    editText.setText("hhhhh  "+matches.get(0));
+                Toast.makeText(getApplicationContext(),"k,l,lk,lk "+contactList.get(1),Toast.LENGTH_LONG).show();
+                for (int i=0;i< contactList.size();i++){
+
+                 try {
+                     JSONObject aa =new  JSONObject(contactList.get(i));
+                     String name= aa.getString("name");
+                     System.out.println("ssssssssssssss "+name);
+                     String pat= "patient "+name;
+                     if (pat.equals(matches.get(0))){
+                     Toast.makeText(getApplicationContext(),
+                             "hello : "+name ,
+                             Toast.LENGTH_LONG).show();
+                         Intent intent = new Intent(Patient.this,PMRecord.class);
+                         intent.putExtra("PMR", contactList.get(i).toString());
+                         startActivity(intent);
+                     }
+                 }catch (final JSONException e) {
+                     Log.e(TAG, "Json parsing error: " + e.getMessage());
+                     runOnUiThread(new Runnable() {
+                         @Override
+                         public void run() {
+                             Toast.makeText(getApplicationContext(),
+                                     "Json parsing error: " + e.getMessage(),
+                                     Toast.LENGTH_LONG).show();
+                         }
+                     });
+
+                 }
+
+
+
+                }
             }
 
             @Override
@@ -216,7 +249,7 @@ public class Patient extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Json Data is downloading", Toast.LENGTH_LONG).show();
 
         }
-        private String TAG = MainActivity.class.getSimpleName();
+
         @Override
         protected Void doInBackground(Void... arg0) {
             HttpHandler sh = new HttpHandler();
@@ -291,8 +324,8 @@ public class Patient extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             ListAdapter adapter = new SimpleAdapter(Patient.this, contactList,
-                    R.layout.listitem, new String[]{"email", "mobile"},
-                    new int[]{R.id.email, R.id.mobile});
+                    R.layout.listitem, new String[]{"name", "email"},
+                    new int[]{R.id.name, R.id.email});
             lv.setAdapter(adapter);
             lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
                 @Override

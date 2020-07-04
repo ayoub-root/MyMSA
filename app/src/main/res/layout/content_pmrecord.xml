@@ -8,4 +8,46 @@
     tools:context=".PMRecord"
     tools:showIn="@layout/activity_pmrecord">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="450dp"
+        android:layout_height="521dp"
+        android:layout_marginBottom="524dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="424dp"
+            android:layout_height="192dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="start microphone to write your notes ..." />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="271dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
