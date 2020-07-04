@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.HttpAuthHandler;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -293,6 +294,16 @@ public class Patient extends AppCompatActivity {
                     R.layout.listitem, new String[]{"email", "mobile"},
                     new int[]{R.id.email, R.id.mobile});
             lv.setAdapter(adapter);
+            lv.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //    String item = (String) lv.getItemAtPosition(position);
+                    Toast.makeText(getApplicationContext(),"You selected : " + lv.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Patient.this,PMRecord.class);
+                    intent.putExtra("PMR", lv.getItemAtPosition(position).toString());
+                    startActivity(intent);
+                }
+            });
         }
     }
 }
