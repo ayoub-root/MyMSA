@@ -33,7 +33,7 @@ TextView name, show,name1;
         TextView name2 = findViewById(R.id.textView6);
         TextView name3 = findViewById(R.id.textView7);
           show = findViewById(R.id.textView4);
-        Button select = findViewById(R.id.button3);
+        //FloatingActionButton select = findViewById(R.id.button33);
 try {
     String a= getIntent().getStringExtra("PMR");
 
@@ -107,7 +107,7 @@ try {
                 //displaying the first match
                 if (matches != null)
                     show.setText("" + matches.get(0));
-                if ( matches.get(0).equals("note")){
+                if ( matches.get(0).equals("diagnostic")){
                     Intent intent = new Intent(patientdetail.this,PMRecord.class);
                     intent.putExtra("name",name.getText());
                     startActivity(intent);
@@ -127,14 +127,14 @@ try {
             }
         });
 
-        findViewById(R.id.button3).setOnTouchListener(new View.OnTouchListener() {
+        findViewById(R.id.button33).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 Toast toast = Toast.makeText(getApplicationContext(),
                         "This is a message displayed in a Toast",
                         Toast.LENGTH_SHORT);
 
-                toast.show();
+              //  toast.show();
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_UP:
                         mSpeechRecognizer.stopListening();

@@ -134,7 +134,7 @@ public class PMRecord extends AppCompatActivity {
                         "This is a message displayed in a Toast",
                         Toast.LENGTH_SHORT);
 
-                toast.show();
+           //     toast.show();
                 switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_UP:
                         mSpeechRecognizer.stopListening();
@@ -156,7 +156,7 @@ public class PMRecord extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(),
                         "This is a message displayed in a Toast",
                         Toast.LENGTH_SHORT);
-                toast.show();// Create an explicit intent for an Activity in your appIntent intent = new Intent(getApplicationContext(), PMRecord.class);
+             //   toast.show();// Create an explicit intent for an Activity in your appIntent intent = new Intent(getApplicationContext(), PMRecord.class);
 
 createNotification("new record added successfully :) ",getApplicationContext());
                 Intent intent = new Intent(PMRecord.this,Patient.class);

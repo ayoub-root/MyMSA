@@ -13,8 +13,8 @@
 
     <include
         layout="@layout/content_pmrecord"
-        android:layout_width="382dp"
-        android:layout_height="398dp" />
+        android:layout_width="396dp"
+        android:layout_height="622dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="#4BA4E0"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

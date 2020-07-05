@@ -165,7 +165,7 @@ public class Patient extends AppCompatActivity {
 
                 //displaying the first match
                 if (matches != null)
-                    editText.setText("hhhhh  "+matches.get(0));
+                    editText.setText(""+matches.get(0));
               //  Toast.makeText(getApplicationContext(),"k,l,lk,lk "+contactList.get(1),Toast.LENGTH_LONG).show();
                 for (int i=0;i< contactList.size();i++){
 
@@ -173,8 +173,8 @@ public class Patient extends AppCompatActivity {
                      JSONObject aa =new  JSONObject(contactList.get(i));
                      String name= aa.getString("name");
                    //  System.out.println("ssssssssssssss "+name);
-                     String pat= "patient "+name;
-                     if (pat.equals(matches.get(0))){
+                     String pat= name+"";
+                     if (pat.toUpperCase().equals(matches.get(0).toUpperCase())){
                  //    Toast.makeText(getApplicationContext(),
                    //          "hello : "+name ,
                      //        Toast.LENGTH_LONG).show();
