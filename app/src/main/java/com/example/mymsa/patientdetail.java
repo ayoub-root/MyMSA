@@ -41,13 +41,13 @@ try {
     Toast toast = Toast.makeText(getApplicationContext(),
             data.toString() + "nnnnnnnn",
             Toast.LENGTH_SHORT);
-    toast.show();
+  //  toast.show();
     name.setText(data.getString("name"));
 }catch (JSONException e){
     Toast toast = Toast.makeText(getApplicationContext(),
             e + "nnnnnnnn",
             Toast.LENGTH_SHORT);
-    toast.show();
+  //  toast.show();
 }
 
 

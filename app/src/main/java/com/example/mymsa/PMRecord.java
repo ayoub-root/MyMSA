@@ -158,7 +158,10 @@ public class PMRecord extends AppCompatActivity {
                         Toast.LENGTH_SHORT);
                 toast.show();// Create an explicit intent for an Activity in your appIntent intent = new Intent(getApplicationContext(), PMRecord.class);
 
-createNotification("a doctor added new notes for someone of your patients",getApplicationContext());
+createNotification("new record added successfully :) ",getApplicationContext());
+                Intent intent = new Intent(PMRecord.this,Patient.class);
+                intent.putExtra("test", "test");
+                startActivity(intent);
                 // Add as notification
                 // NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 //     manager.notify(0, builder.build());
